@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="con">
+    <header class="top-header">
+      <h1>Online Student Registration</h1>
+      <p>Complete all required academic details below.</p>
+    </header>
+
+    <form id="registrationForm" novalidate>
+      
+      <section class="con1">
+        <span class="corolgreen">Section 1</span>
+        <h2>Personal Information & Security</h2>
+        <div class="grid">
+          <div class="field full">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="Full Name" type="text" placeholder="Last name, First name, Middle initial" required>
+            <span class="error" id="fullNameError"></span>
+          </div>
+          <div class="field">
+            <label for="studentId">Student ID / LRN</label>
+            <input id="studentId" name="Student ID" type="text" placeholder="e.g. 2026-012345" required>
+            <span class="error" id="studentIdError"></span>
+          </div>
+          <div class="field">
+            <label for="dob">Date of Birth</label>
+            <input id="dob" name="Date of Birth" type="date" required>
+            <span class="age-note" id="ageNote"></span>
+            <span class="error" id="dobError"></span>
+          </div>
+          <div class="field">
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" name="Mobile" type="tel" maxlength="11" placeholder="09XXXXXXXXX" required>
+            <span class="error" id="mobileError"></span>
+          </div>
+          <div class="field">
+            <label for="personalEmail">Personal Email</label>
+            <input id="personalEmail" name="Email" type="email" placeholder="you@example.com" required>
+            <span class="error" id="personalEmailError"></span>
+          </div>
+          <div class="field">
+            <label for="portalPassword">Portal Password</label>
+            <input id="portalPassword" type="password" placeholder="At least 8 characters" required>
+            <div class="strength-meter"><div class="strength-bar" id="strengthBar"></div></div>
+            <span class="error" id="portalPasswordError"></span>
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" placeholder="Re-enter password" required>
+            <span class="error" id="confirmPasswordError"></span>
+          </div>
+        </div>
+      </section>
+
+     
+      <section class="con2">
+        <span class="corolgreen">Section 2</span>
+        <h2>Academic Details</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="program">Degree Program</label>
+            <select id="program" name="Program" required>
+              <option value="">Select your program</option>
+              <option>BS Information Technology</option>
+              <option>BS Computer Science</option>
+              <option>BS Computer Engineering</option>
+              <option>BS Business Administration</option>
+            </select>
+            <span class="error" id="programError"></span>
+          </div>
+          <div class="field">
+            <label for="yearLevel">Year Level</label>
+            <select id="yearLevel" name="Year Level" required>
+              <option value="">Select year level</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+            <span class="error" id="yearLevelError"></span>
+          </div>
+          <div class="field">
+            <label>Enrollment Status</label>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="Status" value="Regular" required><span>Regular</span></label>
+              <label class="pill"><input type="radio" name="Status" value="Irregular"><span>Irregular</span></label>
+            </div>
+            <span class="error" id="statusError"></span>
+          </div>
+          <div class="field">
+            <label for="units">Units to Enroll (3–24)</label>
+            <input id="units" name="Units" type="number" min="3" max="24" placeholder="18" required>
+            <span class="error" id="unitsError"></span>
+          </div>
+          <div class="field full">
+            <label for="gwa">GPA / GWA (1.00–5.00)</label>
+            <input id="gwa" name="GWA" type="number" min="1" max="5" step="0.01" placeholder="1.75" required>
+            <span class="error" id="gwaError"></span>
+          </div>
+          <div class="field full">
+            <label>Laboratory Courses (Select at least 1)</label>
+            <div class="check-grid">
+              <label class="check-box"><input type="checkbox" name="Courses" value="Programming Lab"> Programming Lab</label>
+              <label class="check-box"><input type="checkbox" name="Courses" value="Database Lab"> Database Lab</label>
+              <label class="check-box"><input type="checkbox" name="Courses" value="Networking Lab"> Networking Lab</label>
+            </div>
+            <span class="error" id="coursesError"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="con3">
+        <span class="corolgreen">Section 3</span>
+        <h2>Documents & Background</h2>
+        <div class="grid">
+          <div class="field full">
+            <label for="uploadDocument">Upload Proof of Grades or Photo</label>
+            <input id="uploadDocument" type="file" accept="image/png,image/jpeg,application/pdf" required>
+            <span class="error" id="uploadDocumentError"></span>
+          </div>
+          <div class="field full">
+            <label for="background">Extracurricular Background / Justification</label>
+            <textarea id="background" name="Background" placeholder="Optional details..."></textarea>
+          </div>
+          <div class="field full">
+            <label class="check-box">
+              <input type="checkbox" id="terms" required>
+              <span>I agree to the university's terms and honor code.</span>
+            </label>
+            <span class="error" id="termsError"></span>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="reset" class="btn-secondary">Clear Form</button>
+        <button type="submit" class="btn-primary">Submit Application</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal" id="resultModal">
+    <div class="modal-card">
+      <h2>Registration Summary</h2>
+      <div id="summaryContent" class="summary-grid"></div>
+      <div class="actions">
+        <button type="button" class="btn-secondary" id="editForm">Edit</button>
+        <button type="button" class="btn-primary" id="confirmButton">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="successModal">
+    <div class="modal-card center">
+      <div class="success-badge">✓</div>
+      <h2>Submitted Successfully!</h2>
+      <button type="button" class="btn-primary" id="closeSuccess">Done</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
