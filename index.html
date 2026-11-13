@@ -36,14 +36,19 @@
             <span class="error" id="dobError"></span>
           </div>
           <div class="field">
-            <label for="mobile">Mobile Number</label>
-            <input id="mobile" name="Mobile" type="tel" maxlength="11" placeholder="09XXXXXXXXX" required>
-            <span class="error" id="mobileError"></span>
+            <label for="instEmail">Institutional Email</label>
+            <input id="instEmail" name="Institutional Email" type="email" placeholder="name@school.edu.ph" required>
+            <span class="error" id="instEmailError"></span>
           </div>
           <div class="field">
             <label for="personalEmail">Personal Email</label>
-            <input id="personalEmail" name="Email" type="email" placeholder="you@example.com" required>
+            <input id="personalEmail" name="Personal Email" type="email" placeholder="you@example.com" required>
             <span class="error" id="personalEmailError"></span>
+          </div>
+          <div class="field full">
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" name="Mobile" type="tel" pattern="[0-9]{11}" maxlength="11" placeholder="09XXXXXXXXX" required>
+            <span class="error" id="mobileError"></span>
           </div>
           <div class="field">
             <label for="portalPassword">Portal Password</label>
@@ -59,7 +64,6 @@
         </div>
       </section>
 
-     
       <section class="con2">
         <span class="corolgreen">Section 2</span>
         <h2>Academic Details</h2>

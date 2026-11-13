@@ -6,7 +6,6 @@ const mobile = document.getElementById('mobile');
 const modal = document.getElementById('resultModal');
 const successModal = document.getElementById('successModal');
 const summaryContent = document.getElementById('summaryContent');
-const strengthBar = document.getElementById('strengthBar');
 const ageNote = document.getElementById('ageNote');
 
 // bdays
@@ -18,28 +17,15 @@ dob.addEventListener('change', () => {
   ageNote.textContent = age >= 0 ? `Age: ${age} years old` : '';
 });
 
-// Pass
-password.addEventListener('input', () => {
-  const val = password.value;
-  let score = 0;
-  if (val.length >= 8) score++;
-  if (/[A-Z]/.test(val)) score++;
-  if (/[0-9]/.test(val)) score++;
-  if (/[^A-Za-z0-9]/.test(val)) score++;
-
-  strengthBar.style.width = `${score * 25}%`;
-  strengthBar.style.background = ['#f87171', '#fb923c', '#facc15', '#34d399'][score - 1] || 'transparent';
-});
-
-// Number
+// Mob Num
 mobile.addEventListener('input', (e) => {
   e.target.value = e.target.value.replace(/\D/g, '').slice(0, 11);
 });
 
+
 form.addEventListener('reset', () => {
   document.querySelectorAll('.error').forEach(el => el.textContent = '');
   ageNote.textContent = '';
-  strengthBar.style.width = '0%';
 });
 
 form.addEventListener('submit', (e) => {
@@ -68,6 +54,7 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
+ 
   summaryContent.innerHTML = '';
   const formData = new FormData(form);
   const coursesList = Array.from(selectedCourses).map(c => c.value).join(', ');
